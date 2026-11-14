@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<?import javafx.geometry.Insets?>
+<BorderPane prefHeight="680.0" prefWidth="1050.0"
+            xmlns="http://javafx.com/javafx/11.0.2"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="co.edu.uniquindio.cineuq.viewController.GestionViewController"
+            style="-fx-background-color: #f2f2f2;">
+
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="20"
+              prefHeight="65"
+              style="-fx-background-color: #17202a;">
+
+            <padding>
+                <Insets left="25" right="25"/>
+            </padding>
+
+            <Label text="CinemaUQ"
+                   style="-fx-text-fill: #d4af37;
+                          -fx-font-size: 25px;
+                          -fx-font-weight: bold;"/>
+
+            <Label text="Gestión del sistema"
+                   style="-fx-text-fill: white;
+                          -fx-font-size: 17px;"/>
+
+        </HBox>
+    </top>
+
+    <center>
+        <VBox spacing="18">
+
+            <padding>
+                <Insets top="25" right="25" bottom="20" left="25"/>
+            </padding>
+
+            <VBox spacing="5">
+                <Label text="Administración de módulos"
+                       style="-fx-font-size: 24px;
+                              -fx-font-weight: bold;
+                              -fx-text-fill: #17202a;"/>
+
+                <Label text="Selecciona una pestaña para administrar la información del cine."
+                       style="-fx-font-size: 14px;
+                              -fx-text-fill: #566573;"/>
+            </VBox>
+
+            <TabPane fx:id="tabGestion"
+                     tabClosingPolicy="UNAVAILABLE"
+                     VBox.vgrow="ALWAYS">
+
+                <!-- PELÍCULAS -->
+                <Tab fx:id="tabPeliculas" text="Películas">
+                    <VBox spacing="15">
+                        <padding>
+                            <Insets top="15" right="15"
+                                    bottom="15" left="15"/>
+                        </padding>
+
+                        <Label text="Películas registradas"
+                               style="-fx-font-size: 18px;
+                                      -fx-font-weight: bold;"/>
+
+                        <TableView VBox.vgrow="ALWAYS">
+                            <columns>
+                                <TableColumn text="Código" prefWidth="100"/>
+                                <TableColumn text="Título" prefWidth="220"/>
+                                <TableColumn text="Género" prefWidth="130"/>
+                                <TableColumn text="Duración" prefWidth="110"/>
+                                <TableColumn text="Clasificación" prefWidth="130"/>
+                            </columns>
+                        </TableView>
+
+                        <HBox spacing="10">
+                            <Button text="Agregar"
+                                    onAction="#onAgregar"/>
+                            <Button text="Editar"
+                                    onAction="#onEditar"/>
+                            <Button text="Eliminar"
+                                    onAction="#onEliminar"/>
+                        </HBox>
+                    </VBox>
+                </Tab>
+
+                <!-- SALAS Y ASIENTOS -->
+                <Tab fx:id="tabSalas" text="Salas y asientos">
+                    <VBox spacing="15">
+                        <padding>
+                            <Insets top="15" right="15"
+                                    bottom="15" left="15"/>
+                        </padding>
+
+                        <Label text="Salas registradas"
+                               style="-fx-font-size: 18px;
+                                      -fx-font-weight: bold;"/>
+
+                        <TableView VBox.vgrow="ALWAYS">
+                            <columns>
+                                <TableColumn text="Código" prefWidth="120"/>
+                                <TableColumn text="Nombre" prefWidth="180"/>
+                                <TableColumn text="Capacidad" prefWidth="140"/>
+                                <TableColumn text="Tipo" prefWidth="150"/>
+                                <TableColumn text="Estado" prefWidth="120"/>
+                            </columns>
+                        </TableView>
+
+                        <HBox spacing="10">
+                            <Button text="Agregar"
+                                    onAction="#onAgregar"/>
+                            <Button text="Editar"
+                                    onAction="#onEditar"/>
+                            <Button text="Eliminar"
+                                    onAction="#onEliminar"/>
+                        </HBox>
+                    </VBox>
+                </Tab>
+
+                <!-- FUNCIONES -->
+                <Tab fx:id="tabFunciones" text="Funciones">
+                    <VBox spacing="15">
+                        <padding>
+                            <Insets top="15" right="15"
+                                    bottom="15" left="15"/>
+                        </padding>
+
+                        <Label text="Funciones programadas"
+                               style="-fx-font-size: 18px;
+                                      -fx-font-weight: bold;"/>
+
+                        <TableView VBox.vgrow="ALWAYS">
+                            <columns>
+                                <TableColumn text="Código" prefWidth="100"/>
+                                <TableColumn text="Película" prefWidth="200"/>
+                                <TableColumn text="Sala" prefWidth="100"/>
+                                <TableColumn text="Fecha" prefWidth="130"/>
+                                <TableColumn text="Hora" prefWidth="100"/>
+                                <TableColumn text="Precio" prefWidth="120"/>
+                            </columns>
+                        </TableView>
+
+                        <HBox spacing="10">
+                            <Button text="Agregar"
+                                    onAction="#onAgregar"/>
+                            <Button text="Editar"
+                                    onAction="#onEditar"/>
+                            <Button text="Eliminar"
+                                    onAction="#onEliminar"/>
+                        </HBox>
+                    </VBox>
+                </Tab>
+
+                <!-- PRODUCTOS Y COMBOS -->
+                <Tab fx:id="tabProductos" text="Productos y combos">
+                    <VBox spacing="15">
+                        <padding>
+                            <Insets top="15" right="15"
+                                    bottom="15" left="15"/>
+                        </padding>
+
+                        <Label text="Productos y combos disponibles"
+                               style="-fx-font-size: 18px;
+                                      -fx-font-weight: bold;"/>
+
+                        <TableView VBox.vgrow="ALWAYS">
+                            <columns>
+                                <TableColumn text="Código" prefWidth="110"/>
+                                <TableColumn text="Nombre" prefWidth="200"/>
+                                <TableColumn text="Tipo" prefWidth="140"/>
+                                <TableColumn text="Precio" prefWidth="130"/>
+                                <TableColumn text="Estado" prefWidth="120"/>
+                            </columns>
+                        </TableView>
+
+                        <HBox spacing="10">
+                            <Button text="Agregar"
+                                    onAction="#onAgregar"/>
+                            <Button text="Editar"
+                                    onAction="#onEditar"/>
+                            <Button text="Eliminar"
+                                    onAction="#onEliminar"/>
+                        </HBox>
+                    </VBox>
+                </Tab>
+
+                <!-- CLIENTES -->
+                <Tab fx:id="tabClientes" text="Clientes">
+                    <VBox spacing="15">
+                        <padding>
+                            <Insets top="15" right="15"
+                                    bottom="15" left="15"/>
+                        </padding>
+
+                        <Label text="Clientes registrados"
+                               style="-fx-font-size: 18px;
+                                      -fx-font-weight: bold;"/>
+
+                        <TableView VBox.vgrow="ALWAYS">
+                            <columns>
+                                <TableColumn text="Documento" prefWidth="130"/>
+                                <TableColumn text="Nombre" prefWidth="200"/>
+                                <TableColumn text="Correo" prefWidth="220"/>
+                                <TableColumn text="Estado" prefWidth="120"/>
+                            </columns>
+                        </TableView>
+
+                        <HBox spacing="10">
+                            <Button text="Agregar"
+                                    onAction="#onAgregar"/>
+                            <Button text="Editar"
+                                    onAction="#onEditar"/>
+                            <Button text="Eliminar"
+                                    onAction="#onEliminar"/>
+                        </HBox>
+                    </VBox>
+                </Tab>
+
+                <!-- COMPRAS -->
+                <Tab fx:id="tabCompras" text="Compras">
+                    <VBox spacing="15">
+                        <padding>
+                            <Insets top="15" right="15"
+                                    bottom="15" left="15"/>
+                        </padding>
+
+                        <Label text="Compras realizadas"
+                               style="-fx-font-size: 18px;
+                                      -fx-font-weight: bold;"/>
+
+                        <TableView VBox.vgrow="ALWAYS">
+                            <columns>
+                                <TableColumn text="Código" prefWidth="120"/>
+                                <TableColumn text="Cliente" prefWidth="200"/>
+                                <TableColumn text="Fecha" prefWidth="150"/>
+                                <TableColumn text="Total" prefWidth="130"/>
+                                <TableColumn text="Estado" prefWidth="130"/>
+                            </columns>
+                        </TableView>
+
+                        <HBox spacing="10">
+                            <Button text="Consultar"
+                                    onAction="#onEditar"/>
+                            <Button text="Eliminar"
+                                    onAction="#onEliminar"/>
+                        </HBox>
+                    </VBox>
+                </Tab>
+
+            </TabPane>
+
+            <Label fx:id="lblMensaje"
+                   wrapText="true"
+                   style="-fx-text-fill: #2874a6;
+                          -fx-font-weight: bold;"/>
+
+            <HBox alignment="CENTER_RIGHT">
+                <Button text="Regresar al panel"
+                        onAction="#onRegresar"
+                        style="-fx-background-color: #263746;
+                               -fx-text-fill: white;
+                               -fx-padding: 9 20;"/>
+            </HBox>
+
+        </VBox>
+    </center>
+
+    <bottom>
+        <HBox alignment="CENTER"
+              prefHeight="35"
+              style="-fx-background-color: #17202a;">
+
+            <Label text="CinemaUQ - Gestión del sistema"
+                   style="-fx-text-fill: white;"/>
+
+        </HBox>
+    </bottom>
+
+</BorderPane>

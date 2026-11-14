@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<BorderPane prefHeight="650.0" prefWidth="1000.0"
+            xmlns="http://javafx.com/javafx/11.0.2"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="co.edu.uniquindio.cineuq.viewController.AdministradorViewController"
+            style="-fx-background-color: #f2f2f2;">
+
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="20"
+              prefHeight="65"
+              style="-fx-background-color: #17202a;">
+
+            <padding>
+                <Insets left="25" right="25"/>
+            </padding>
+
+            <Label text="CinemaUQ"
+                   style="-fx-text-fill: #d4af37;
+                          -fx-font-size: 25px;
+                          -fx-font-weight: bold;"/>
+
+            <Label text="Panel de administración"
+                   style="-fx-text-fill: white;
+                          -fx-font-size: 17px;"/>
+
+            <Region HBox.hgrow="ALWAYS"/>
+
+            <Label text="Administrador"
+                   style="-fx-text-fill: #d4af37;
+                          -fx-font-size: 14px;"/>
+
+        </HBox>
+    </top>
+
+    <left>
+        <VBox prefWidth="220"
+              spacing="12"
+              style="-fx-background-color: #263746;">
+
+            <padding>
+                <Insets top="25" right="15" bottom="20" left="15"/>
+            </padding>
+
+            <Label text="MENÚ PRINCIPAL"
+                   style="-fx-text-fill: #d4af37;
+                          -fx-font-size: 14px;
+                          -fx-font-weight: bold;"/>
+
+            <Button text="Inicio"
+                    maxWidth="Infinity"
+                    onAction="#onInicio"
+                    style="-fx-background-color: #34495e;
+                           -fx-text-fill: white;"/>
+
+            <Separator/>
+
+            <Label text="GESTIÓN"
+                   style="-fx-text-fill: #d4af37;
+                          -fx-font-weight: bold;"/>
+
+            <Button text="Películas"
+                    maxWidth="Infinity"
+                    onAction="#onGestionarPeliculas"/>
+
+            <Button text="Salas y asientos"
+                    maxWidth="Infinity"
+                    onAction="#onGestionarSalas"/>
+
+            <Button text="Funciones"
+                    maxWidth="Infinity"
+                    onAction="#onGestionarFunciones"/>
+
+            <Button text="Productos y combos"
+                    maxWidth="Infinity"
+                    onAction="#onGestionarProductos"/>
+
+            <Button text="Clientes"
+                    maxWidth="Infinity"
+                    onAction="#onGestionarClientes"/>
+
+            <Button text="Compras"
+                    maxWidth="Infinity"
+                    onAction="#onGestionarCompras"/>
+
+            <Separator/>
+
+            <Label text="INFORMES"
+                   style="-fx-text-fill: #d4af37;
+                          -fx-font-weight: bold;"/>
+
+            <Button text="Reportes"
+                    maxWidth="Infinity"
+                    onAction="#onConsultarReportes"/>
+
+            <Region VBox.vgrow="ALWAYS"/>
+
+            <Button text="Cerrar sesión"
+                    maxWidth="Infinity"
+                    onAction="#onCerrarSesion"
+                    style="-fx-background-color: #a93226;
+                           -fx-text-fill: white;"/>
+
+        </VBox>
+    </left>
+
+    <center>
+        <VBox spacing="22">
+
+            <padding>
+                <Insets top="30" right="30" bottom="20" left="30"/>
+            </padding>
+
+            <VBox spacing="7">
+
+                <Label text="Bienvenido al panel administrativo"
+                       style="-fx-font-size: 25px;
+                              -fx-font-weight: bold;
+                              -fx-text-fill: #17202a;"/>
+
+                <Label fx:id="lblCorreoAdministrador"
+                       style="-fx-font-size: 14px;
+                              -fx-text-fill: #566573;"/>
+
+                <Label fx:id="lblRol"
+                       style="-fx-font-size: 12px;
+                              -fx-text-fill: #7f8c8d;"/>
+
+            </VBox>
+
+            <Label text="Resumen del sistema"
+                   style="-fx-font-size: 19px;
+                          -fx-font-weight: bold;
+                          -fx-text-fill: #263746;"/>
+
+            <GridPane hgap="15" vgap="15">
+
+                <VBox spacing="12"
+                      prefWidth="200"
+                      style="-fx-background-color: white;
+                             -fx-background-radius: 10;
+                             -fx-padding: 20;"
+                      GridPane.columnIndex="0"
+                      GridPane.rowIndex="0">
+
+                    <Label text="Películas registradas"
+                           style="-fx-text-fill: #566573;"/>
+
+                    <Label fx:id="lblTotalPeliculas"
+                           style="-fx-font-size: 28px;
+                                  -fx-font-weight: bold;
+                                  -fx-text-fill: #d4af37;"/>
+
+                </VBox>
+
+                <VBox spacing="12"
+                      prefWidth="200"
+                      style="-fx-background-color: white;
+                             -fx-background-radius: 10;
+                             -fx-padding: 20;"
+                      GridPane.columnIndex="1"
+                      GridPane.rowIndex="0">
+
+                    <Label text="Funciones registradas"
+                           style="-fx-text-fill: #566573;"/>
+
+                    <Label fx:id="lblTotalFunciones"
+                           style="-fx-font-size: 28px;
+                                  -fx-font-weight: bold;
+                                  -fx-text-fill: #2980b9;"/>
+
+                </VBox>
+
+                <VBox spacing="12"
+                      prefWidth="200"
+                      style="-fx-background-color: white;
+                             -fx-background-radius: 10;
+                             -fx-padding: 20;"
+                      GridPane.columnIndex="0"
+                      GridPane.rowIndex="1">
+
+                    <Label text="Clientes registrados"
+                           style="-fx-text-fill: #566573;"/>
+
+                    <Label fx:id="lblTotalClientes"
+                           style="-fx-font-size: 28px;
+                                  -fx-font-weight: bold;
+                                  -fx-text-fill: #27ae60;"/>
+
+                </VBox>
+
+                <VBox spacing="12"
+                      prefWidth="200"
+                      style="-fx-background-color: white;
+                             -fx-background-radius: 10;
+                             -fx-padding: 20;"
+                      GridPane.columnIndex="1"
+                      GridPane.rowIndex="1">
+
+                    <Label text="Compras realizadas"
+                           style="-fx-text-fill: #566573;"/>
+
+                    <Label fx:id="lblTotalCompras"
+                           style="-fx-font-size: 28px;
+                                  -fx-font-weight: bold;
+                                  -fx-text-fill: #8e44ad;"/>
+
+                </VBox>
+
+            </GridPane>
+
+            <VBox spacing="10"
+                  style="-fx-background-color: white;
+                         -fx-background-radius: 10;
+                         -fx-padding: 20;">
+
+                <Label text="Administración de CinemaUQ"
+                       style="-fx-font-size: 18px;
+                              -fx-font-weight: bold;
+                              -fx-text-fill: #263746;"/>
+
+                <Label text="Selecciona una opción del menú lateral para administrar los diferentes módulos del cine."
+                       wrapText="true"
+                       style="-fx-font-size: 14px;
+                              -fx-text-fill: #566573;"/>
+
+                <Label fx:id="lblMensaje"
+                       wrapText="true"
+                       style="-fx-text-fill: #2874a6;
+                              -fx-font-weight: bold;"/>
+
+            </VBox>
+
+        </VBox>
+    </center>
+
+    <bottom>
+        <HBox alignment="CENTER"
+              prefHeight="35"
+              style="-fx-background-color: #17202a;">
+
+            <Label text="CinemaUQ - Sistema de gestión de cine"
+                   style="-fx-text-fill: white;"/>
+
+        </HBox>
+    </bottom>
+
+</BorderPane>

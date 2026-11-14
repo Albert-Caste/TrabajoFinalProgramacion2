@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.chart.LineChart?>
+<BorderPane prefHeight="720.0" prefWidth="1100.0"
+            xmlns="http://javafx.com/javafx/11.0.2"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="co.edu.uniquindio.cineuq.viewController.ReportesViewController"
+            style="-fx-background-color: #f2f2f2;">
+
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="20"
+              prefHeight="65"
+              style="-fx-background-color: #17202a;">
+
+            <padding>
+                <Insets left="25" right="25"/>
+            </padding>
+
+            <Label text="CinemaUQ"
+                   style="-fx-text-fill: #d4af37;
+                          -fx-font-size: 25px;
+                          -fx-font-weight: bold;"/>
+
+            <Label text="Reportes y estadísticas"
+                   style="-fx-text-fill: white;
+                          -fx-font-size: 17px;"/>
+
+        </HBox>
+    </top>
+
+    <center>
+        <ScrollPane fitToWidth="true"
+                    style="-fx-background-color: transparent;
+                           -fx-background: transparent;">
+
+            <VBox spacing="20">
+
+                <padding>
+                    <Insets top="25" right="30"
+                            bottom="25" left="30"/>
+                </padding>
+
+                <VBox spacing="5">
+                    <Label text="Panel de reportes"
+                           style="-fx-font-size: 25px;
+                                  -fx-font-weight: bold;
+                                  -fx-text-fill: #17202a;"/>
+
+                    <Label text="Consulta las estadísticas generales del cine."
+                           style="-fx-font-size: 14px;
+                                  -fx-text-fill: #566573;"/>
+                </VBox>
+
+                <!-- INDICADORES -->
+                <GridPane hgap="15" vgap="15">
+
+                    <VBox spacing="10"
+                          style="-fx-background-color: white;
+                                 -fx-background-radius: 10;
+                                 -fx-padding: 18;"
+                          GridPane.columnIndex="0"
+                          GridPane.rowIndex="0">
+
+                        <Label text="Compras realizadas"
+                               style="-fx-text-fill: #566573;"/>
+
+                        <Label fx:id="lblTotalCompras"
+                               style="-fx-font-size: 25px;
+                                      -fx-font-weight: bold;
+                                      -fx-text-fill: #2980b9;"/>
+
+                    </VBox>
+
+                    <VBox spacing="10"
+                          style="-fx-background-color: white;
+                                 -fx-background-radius: 10;
+                                 -fx-padding: 18;"
+                          GridPane.columnIndex="1"
+                          GridPane.rowIndex="0">
+
+                        <Label text="Ingresos registrados"
+                               style="-fx-text-fill: #566573;"/>
+
+                        <Label fx:id="lblIngresos"
+                               style="-fx-font-size: 25px;
+                                      -fx-font-weight: bold;
+                                      -fx-text-fill: #27ae60;"/>
+
+                    </VBox>
+
+                    <VBox spacing="10"
+                          style="-fx-background-color: white;
+                                 -fx-background-radius: 10;
+                                 -fx-padding: 18;"
+                          GridPane.columnIndex="0"
+                          GridPane.rowIndex="1">
+
+                        <Label text="Clientes registrados"
+                               style="-fx-text-fill: #566573;"/>
+
+                        <Label fx:id="lblTotalClientes"
+                               style="-fx-font-size: 25px;
+                                      -fx-font-weight: bold;
+                                      -fx-text-fill: #8e44ad;"/>
+
+                    </VBox>
+
+                    <VBox spacing="10"
+                          style="-fx-background-color: white;
+                                 -fx-background-radius: 10;
+                                 -fx-padding: 18;"
+                          GridPane.columnIndex="1"
+                          GridPane.rowIndex="1">
+
+                        <Label text="Entradas vendidas"
+                               style="-fx-text-fill: #566573;"/>
+
+                        <Label fx:id="lblTotalEntradas"
+                               style="-fx-font-size: 25px;
+                                      -fx-font-weight: bold;
+                                      -fx-text-fill: #d68910;"/>
+
+                    </VBox>
+
+                </GridPane>
+
+                <!-- GRÁFICOS -->
+                <Label text="Estadísticas gráficas"
+                       style="-fx-font-size: 20px;
+                              -fx-font-weight: bold;
+                              -fx-text-fill: #17202a;"/>
+
+                <TabPane tabClosingPolicy="UNAVAILABLE"
+                         prefHeight="370">
+
+                    <Tab text="Ventas">
+
+                        <VBox spacing="10">
+                            <padding>
+                                <Insets top="15" right="15"
+                                        bottom="15" left="15"/>
+                            </padding>
+
+                            <Label text="Ingresos mensuales"/>
+
+                            <BarChart fx:id="graficoVentas"
+                                      animated="false"
+                                      prefHeight="300">
+
+                                <xAxis>
+                                    <CategoryAxis label="Mes"/>
+                                </xAxis>
+
+                                <yAxis>
+                                    <NumberAxis label="Ingresos"
+                                                forceZeroInRange="true"/>
+                                </yAxis>
+
+                            </BarChart>
+                        </VBox>
+
+                    </Tab>
+
+                    <Tab text="Películas">
+
+                        <VBox spacing="10" alignment="CENTER">
+                            <padding>
+                                <Insets top="15" right="15"
+                                        bottom="15" left="15"/>
+                            </padding>
+
+                            <Label text="Distribución de películas por género"/>
+
+                            <PieChart fx:id="graficoPeliculas"
+                                      animated="false"
+                                      prefHeight="300"/>
+
+                        </VBox>
+
+                    </Tab>
+
+                    <Tab text="Funciones">
+
+                        <VBox spacing="10">
+                            <padding>
+                                <Insets top="15" right="15"
+                                        bottom="15" left="15"/>
+                            </padding>
+
+                            <Label text="Cantidad de funciones por mes"/>
+
+                            <LineChart fx:id="graficoFunciones"
+                                       animated="false"
+                                       prefHeight="300">
+
+                                <xAxis>
+                                    <CategoryAxis label="Mes"/>
+                                </xAxis>
+
+                                <yAxis>
+                                    <NumberAxis label="Funciones"
+                                                forceZeroInRange="true"/>
+                                </yAxis>
+
+                            </LineChart>
+
+                        </VBox>
+
+                    </Tab>
+
+                </TabPane>
+
+                <!-- EXPORTACIÓN -->
+                <VBox spacing="12"
+                      style="-fx-background-color: white;
+                             -fx-background-radius: 10;
+                             -fx-padding: 20;">
+
+                    <Label text="Generar reporte"
+                           style="-fx-font-size: 19px;
+                                  -fx-font-weight: bold;
+                                  -fx-text-fill: #17202a;"/>
+
+                    <Label text="Selecciona el tipo de reporte que deseas exportar."
+                           style="-fx-text-fill: #566573;"/>
+
+                    <HBox alignment="CENTER_LEFT" spacing="12">
+
+                        <ComboBox fx:id="cbTipoReporte"
+                                  prefWidth="200"
+                                  promptText="Tipo de reporte"/>
+
+                        <Button text="Exportar TXT"
+                                onAction="#onExportarTXT"
+                                style="-fx-background-color: #2874a6;
+                                       -fx-text-fill: white;
+                                       -fx-padding: 9 15;"/>
+
+                        <Button text="Exportar PDF"
+                                onAction="#onExportarPDF"
+                                style="-fx-background-color: #a93226;
+                                       -fx-text-fill: white;
+                                       -fx-padding: 9 15;"/>
+
+                        <Button text="Actualizar"
+                                onAction="#onActualizar"
+                                style="-fx-background-color: #d4af37;
+                                       -fx-text-fill: white;
+                                       -fx-padding: 9 15;"/>
+
+                    </HBox>
+
+                    <Label fx:id="lblMensaje"
+                           wrapText="true"
+                           style="-fx-text-fill: #2874a6;
+                                  -fx-font-weight: bold;"/>
+
+                </VBox>
+
+                <HBox alignment="CENTER_RIGHT">
+                    <Button text="Regresar al panel"
+                            onAction="#onRegresar"
+                            style="-fx-background-color: #263746;
+                                   -fx-text-fill: white;
+                                   -fx-padding: 9 20;"/>
+                </HBox>
+
+            </VBox>
+
+        </ScrollPane>
+    </center>
+
+    <bottom>
+        <HBox alignment="CENTER"
+              prefHeight="35"
+              style="-fx-background-color: #17202a;">
+
+            <Label text="CinemaUQ - Reportes administrativos"
+                   style="-fx-text-fill: white;"/>
+
+        </HBox>
+    </bottom>
+
+</BorderPane>
